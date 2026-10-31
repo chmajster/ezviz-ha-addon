@@ -54,6 +54,12 @@ device verification at all.
 
 ## Troubleshooting
 
+**Installation fails with Alpine `temporary error` and `no such package`.**
+The build could not download the package indexes. Version 2.3.3 retries the
+downloads and tries a second HTTPS mirror. If it still fails, check the Home
+Assistant host's DNS and outbound HTTPS connectivity; see the
+[installation troubleshooting steps](./ezviz-camera/README.md#installation-fails-while-downloading-alpine-packages).
+
 **Login fails repeatedly.** The log now prints the reason EZVIZ gave instead of
 a generic `Login failed`, including whether it is a wrong password, a locked
 account or the wrong region. After an authentication failure the add-on backs

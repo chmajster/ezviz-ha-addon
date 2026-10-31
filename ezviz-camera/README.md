@@ -95,6 +95,23 @@ hls_list_size: 10  # Number of segments to keep (5-20)
 
 ## Troubleshooting
 
+### Installation fails while downloading Alpine packages
+
+If the build log shows `temporary error (try again later)` while fetching
+`APKINDEX.tar.gz`, followed by `no such package` for `python3`, `py3-pip`,
+`ffmpeg`, or `dos2unix`, the package indexes could not be downloaded.
+
+The build retries package installation up to three times, waiting five seconds
+between attempts, then tries the same Alpine release on a second HTTPS mirror.
+If both mirrors fail:
+
+- Check the Home Assistant host's DNS and outbound HTTPS connectivity to
+  `dl-cdn.alpinelinux.org` and `dl-4.alpinelinux.org`.
+- Check whether a firewall, proxy, or DNS filter is blocking these hosts.
+- Retry the add-on installation after restoring connectivity or after a mirror
+  outage ends. If you have an older installed version, refresh the add-on store
+  and update to version 2.3.3 or later.
+
 ### Add-on won't start
 - Check the logs for error messages
 - Verify your EZVIZ credentials are correct
